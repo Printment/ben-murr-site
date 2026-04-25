@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building a personal website from scratch as a Head of Product | Ben Murr</title>
+    <meta
+      name="description"
+      content="A sample long-form article page for Ben Murr's blog, covering the process of building a personal website with AI tools and modern deployment workflows."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Oxanium:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="chrome-grid" aria-hidden="true"></div>
+    <div class="page-shell">
+      <header class="site-header panel panel-raised">
+        <div class="masthead-bar" aria-hidden="true">
+          <span class="masthead-chip">Ben Murr</span>
+          <span class="masthead-rule"></span>
+          <span class="masthead-chip">Article template</span>
+        </div>
+        <div class="topbar">
+          <a class="brand" href="./index.html" aria-label="Ben Murr home">
+            <span class="brand-mark"></span>
+            <span class="brand-copy">
+              <span class="brand-name">Ben Murr</span>
+              <span class="brand-meta">Product leadership with hands-on technical curiosity</span>
+            </span>
+          </a>
+          <nav class="nav" aria-label="Primary">
+            <a href="./cv.html" class="nav-link">CV</a>
+            <a href="./achievements.html" class="nav-link">Achievements</a>
+            <a href="./ai-projects.html" class="nav-link">AI Projects</a>
+            <a href="./blog.html" class="nav-link nav-link-active" aria-current="page">Blog</a>
+            <a href="./about.html" class="nav-link">About</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <div class="article-breadcrumb">
+          <a class="text-link" href="./blog.html">Back to blog</a>
+        </div>
+
+        <article class="article-layout">
+          <header class="article-header panel panel-hero">
+            <p class="meta-line">April 25, 2026 / Hands-On Builds</p>
+            <h1 class="article-title">Building a personal website from scratch as a Head of Product</h1>
+            <p class="article-deck">
+              What started as a desire for a sharper personal website became a
+              practical lesson in design systems, Git, deployment, domains, and
+              what changes when a PM gets close enough to the work to ship it.
+            </p>
+            <div class="tag-row">
+              <span class="tag">AI</span>
+              <span class="tag">Codex</span>
+              <span class="tag">Design System</span>
+              <span class="tag">Vercel</span>
+            </div>
+          </header>
+
+          <div class="article-hero-image panel panel-raised article-visual article-visual-featured" aria-hidden="true"></div>
+
+          <div class="article-content-wrap">
+            <aside class="article-sidebar panel panel-inset">
+              <p class="meta-line">Article metadata</p>
+              <div class="signal-row">
+                <span class="signal-label">Audience</span>
+                <span class="signal-value">PM peers</span>
+              </div>
+              <div class="signal-row">
+                <span class="signal-label">Theme</span>
+                <span class="signal-value gold">Learning by building</span>
+              </div>
+              <div class="signal-row">
+                <span class="signal-label">Status</span>
+                <span class="signal-value cyan">Template page</span>
+              </div>
+              <div class="divider"></div>
+              <p class="meta-note">
+                This page is the structural template for future long-form
+                writing, ready to be wired into Sanity later.
+              </p>
+            </aside>
+
+            <div class="article-body panel panel-raised">
+              <p>
+                I wanted this site to do two jobs at once. First, it needed to
+                present me credibly as a product leader. Second, it needed to
+                reflect the fact that I’m increasingly interested in doing more
+                of the work myself, especially where AI makes that possible.
+              </p>
+              <p>
+                That combination quickly turned the project into more than a
+                branding exercise. It became a practical test of whether I could
+                move beyond directing work and get closer to design, code, Git,
+                deployment, and the kind of technical detail I’d usually rely on
+                engineers to handle.
+              </p>
+
+              <h2>Why this mattered</h2>
+              <p>
+                There is a difference between understanding a workflow in theory
+                and understanding it through delivery. Setting up GitHub,
+                connecting Vercel, handling DNS, and shaping a design system all
+                forced me into the mechanics. That made the learning stick.
+              </p>
+              <p>
+                It also changed how I think about AI-enabled product work. The
+                value is not only speed. It is the expansion of who can get
+                meaningfully involved in execution, provided they are willing to
+                learn the systems underneath the surface.
+              </p>
+
+              <h2>What the build involved</h2>
+              <p>
+                The process broke down into a few practical layers: visual
+                direction, component design, static page structure, Git setup,
+                GitHub publishing, Vercel deployment, and finally custom-domain
+                configuration through IONOS.
+              </p>
+              <p>
+                None of those parts were impossible individually. The value came
+                from doing them end to end and seeing how design decisions,
+                content structure, and technical delivery all connect.
+              </p>
+
+              <blockquote class="article-quote">
+                The real learning came from shipping the whole chain, not from
+                understanding each part in isolation.
+              </blockquote>
+
+              <h2>What I would carry forward</h2>
+              <p>
+                The next step is not to turn into a full-time engineer. It is to
+                keep building enough familiarity that technical work becomes less
+                abstract, more discussable, and more testable in my own hands.
+              </p>
+              <p>
+                That is the broader theme of this blog. Not hobby tinkering for
+                its own sake, but practical experimentation that makes me a
+                stronger product leader and a more credible operator in AI-heavy
+                environments.
+              </p>
+            </div>
+          </div>
+        </article>
+      </main>
+
+      <footer class="footer panel panel-raised">
+        <p class="footer-title">Ben Murr</p>
+        <p class="footer-copy">
+          Article template foundation for future Sanity-powered publishing.
+        </p>
+        <a class="text-link" href="./blog.html">More articles</a>
+      </footer>
+    </div>
+  </body>
+</html>

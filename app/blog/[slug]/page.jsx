@@ -65,47 +65,55 @@ export default async function ArticlePage({ params }) {
       </div>
 
       <article className="article-layout">
-        <header className="article-header panel panel-hero">
-          <p className="meta-line">
-            {formatDate(article.publishDate)} / {article.category?.title}
-          </p>
-          <h1 className="article-title">{article.title}</h1>
-          <p className="article-deck">{article.summary}</p>
-          <div className="tag-row">
-            {article.tags.map((tag) => (
-              <span className="tag" key={tag.slug}>
-                {tag.title}
-              </span>
-            ))}
+        <header className="article-hero-banner panel panel-hero">
+          <div className="article-header">
+            <p className="meta-line">
+              {formatDate(article.publishDate)} / {article.category?.title}
+            </p>
+            <h1 className="article-title">{article.title}</h1>
+            <p className="article-deck">{article.summary}</p>
+            <div className="tag-row">
+              {article.tags.map((tag) => (
+                <span className="tag" key={tag.slug}>
+                  {tag.title}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="article-hero-image">
+            <ArticleVisual article={article} />
           </div>
         </header>
 
-        <div className="article-hero-image panel panel-raised">
-          <ArticleVisual article={article} />
-        </div>
-
         <div className="article-content-wrap">
           <aside className="article-sidebar panel panel-inset">
-            <p className="meta-line">Article metadata</p>
+            <p className="meta-line">Article snapshot</p>
             <div className="signal-row">
-              <span className="signal-label">Audience</span>
-              <span className="signal-value">PM peers</span>
+              <span className="signal-label">Published</span>
+              <span className="signal-value">{formatDate(article.publishDate)}</span>
             </div>
             <div className="signal-row">
               <span className="signal-label">Theme</span>
               <span className="signal-value gold">{article.category?.title}</span>
             </div>
             <div className="signal-row">
-              <span className="signal-label">Status</span>
-              <span className="signal-value cyan">
-                {article.source === "sanity" ? "Sanity content" : "Fallback seed"}
-              </span>
+              <span className="signal-label">Tags</span>
+              <span className="signal-value cyan">{article.tags.length}</span>
             </div>
-            <div className="divider" />
-            <p className="meta-note">
-              This page is ready for live Sanity content once project credentials
-              are added and the Studio is populated.
-            </p>
+            {article.tags.length ? (
+              <>
+                <div className="divider" />
+                <p className="meta-note">Topics</p>
+                <div className="tag-row article-sidebar-tags">
+                  {article.tags.map((tag) => (
+                    <span className="tag" key={tag.slug}>
+                      {tag.title}
+                    </span>
+                  ))}
+                </div>
+              </>
+            ) : null}
           </aside>
 
           <div className="article-body panel panel-raised">

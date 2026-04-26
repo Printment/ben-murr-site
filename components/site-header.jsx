@@ -15,7 +15,7 @@ export function SiteHeader() {
           <span className="brand-copy">
             <span className="brand-name">Ben Murr</span>
             <span className="brand-meta">
-              Product leadership with hands-on technical curiosity
+              Product leadership, AI-assisted building and practical advice to growing technical expertise
             </span>
           </span>
         </Link>

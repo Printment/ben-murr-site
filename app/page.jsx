@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { getAllArticles } from "@/lib/blog"
 import { ArticleVisual } from "@/components/article-visual"
+import { formatDate } from "@/lib/utils"
 
 export default async function HomePage() {
   const articles = await getAllArticles()
@@ -14,7 +15,7 @@ export default async function HomePage() {
           <h1>Product thinking with builder momentum.</h1>
           <p className="hero-text">
             I&apos;m Ben Murr, a product leader exploring how AI can expand what a
-            PM can build, ship, and understand firsthand. This site captures the
+            PM can build, ship and understand firsthand. This site captures the
             work, the learning, and the practical experiments behind that shift.
           </p>
           <div className="hero-actions">
@@ -30,25 +31,34 @@ export default async function HomePage() {
           </div>
         </div>
 
-        <aside className="hero-aside panel panel-inset" aria-label="Current focus">
-          <div className="signal-row">
-            <span className="signal-label">Current theme</span>
-            <span className="signal-value">AI-assisted building</span>
-          </div>
-          <div className="signal-row">
-            <span className="signal-label">Primary audience</span>
-            <span className="signal-value gold">PM peers and recruiters</span>
-          </div>
-          <div className="signal-row">
-            <span className="signal-label">Writing style</span>
-            <span className="signal-value cyan">Practical and reflective</span>
-          </div>
-          <div className="divider" />
-          <p className="meta-note">
-            The site pairs product storytelling with hands-on experiments in AI
-            tools, lightweight technical delivery, and learning in public.
-          </p>
-        </aside>
+        {featured ? (
+          <aside className="hero-aside hero-feature panel panel-inset" aria-label="Latest article">
+            <p className="meta-line">Currently live</p>
+            <div className="hero-feature-visual panel panel-raised">
+              <ArticleVisual article={featured} />
+            </div>
+            <div className="signal-row">
+              <span className="signal-label">Published</span>
+              <span className="signal-value">{formatDate(featured.publishDate)}</span>
+            </div>
+            <div className="signal-row">
+              <span className="signal-label">Theme</span>
+              <span className="signal-value gold">{featured.category?.title}</span>
+            </div>
+            <h3 className="hero-feature-title">{featured.title}</h3>
+            <p className="meta-note hero-feature-summary">{featured.summary}</p>
+            <div className="tag-row hero-feature-tags">
+              {featured.tags.slice(0, 3).map((tag) => (
+                <span className="tag" key={tag.slug}>
+                  {tag.title}
+                </span>
+              ))}
+            </div>
+            <Link className="text-link" href={`/blog/${featured.slug}`}>
+              Read latest article
+            </Link>
+          </aside>
+        ) : null}
       </section>
 
       <section className="section-block">
@@ -63,7 +73,7 @@ export default async function HomePage() {
             <h3>Blog</h3>
             <p>
               A growing archive of practical writing about learning technical
-              craft as a product leader, building with AI, and turning ideas
+              craft as a product leader, building with AI and turning ideas
               into working products.
             </p>
             <div className="tag-row">

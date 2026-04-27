@@ -7,7 +7,7 @@ export default function AchievementsPage() {
     <SimplePage
       eyebrow="Page placeholder"
       title="Achievements page coming next."
-      body="This page will become a sharper view of career outcomes, shipped work, and the evidence behind the broader profile."
+      body="This page will become a sharper view of career outcomes, shipped work and the evidence behind the broader profile."
     />
   )
 }

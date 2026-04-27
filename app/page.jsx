@@ -16,14 +16,11 @@ export default async function HomePage() {
           <p className="hero-text">
             I&apos;m Ben Murr, a product leader exploring how AI can expand what a
             PM can build, ship and understand firsthand. This site captures the
-            work, the learning, and the practical experiments behind that shift.
+            work, the learning and the practical experiments behind that shift.
           </p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/blog">
               Read the blog
-            </Link>
-            <Link className="button button-secondary" href="/ai-projects">
-              See AI projects
             </Link>
             <Link className="button button-ghost" href="/about">
               About Ben
@@ -67,7 +64,7 @@ export default async function HomePage() {
           <h2>What this site is for</h2>
         </div>
 
-        <div className="project-grid">
+        <div className="project-grid homepage-focus-grid">
           <article className="card panel panel-raised">
             <p className="meta-line">01 / Writing and reflection</p>
             <h3>Blog</h3>
@@ -87,37 +84,20 @@ export default async function HomePage() {
           </article>
 
           <article className="card panel panel-raised">
-            <p className="meta-line">02 / Practical experiments</p>
-            <h3>AI Projects</h3>
+            <p className="meta-line">02 / About Ben</p>
+            <h3>About</h3>
             <p>
-              Case studies and working examples from building transactional
-              sites, tracking tools, and AI-assisted product experiments outside
-              the usual PM comfort zone.
+              A clearer view of how I work as a product leader, how I&apos;m using
+              AI to grow technical fluency and the broader experience behind
+              the work collected on this site.
             </p>
             <div className="tag-row">
-              <span className="tag">Codex</span>
-              <span className="tag">Loveable</span>
-              <span className="tag">Polsia</span>
+              <span className="tag">Product Leadership</span>
+              <span className="tag">AI-Assisted Building</span>
+              <span className="tag">How I Work</span>
             </div>
-            <Link className="text-link" href="/ai-projects">
-              Open project list
-            </Link>
-          </article>
-
-          <article className="card panel panel-raised">
-            <p className="meta-line">03 / Professional signal</p>
-            <h3>Career View</h3>
-            <p>
-              A clear route into experience, achievements, and the broader story
-              behind how I lead teams and learn by doing.
-            </p>
-            <div className="tag-row">
-              <span className="tag">CV</span>
-              <span className="tag">Achievements</span>
-              <span className="tag">About</span>
-            </div>
-            <Link className="text-link" href="/cv">
-              View professional summary
+            <Link className="text-link" href="/about">
+              Explore about Ben
             </Link>
           </article>
         </div>

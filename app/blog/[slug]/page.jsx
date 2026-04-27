@@ -1,40 +1,11 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { PortableText } from "@portabletext/react"
 import { getAllArticles, getArticleBySlug } from "@/lib/blog"
 import { ArticleVisual } from "@/components/article-visual"
 import { formatDate } from "@/lib/utils"
-import { getImageUrl } from "@/sanity/lib/image"
+import { PortableRichText } from "@/components/portable-rich-text"
 
 export const revalidate = 60
-
-const portableTextComponents = {
-  block: {
-    normal: ({ children }) => <p>{children}</p>,
-    h2: ({ children }) => <h2>{children}</h2>,
-    blockquote: ({ children }) => <blockquote className="article-quote">{children}</blockquote>,
-  },
-  types: {
-    image: ({ value }) => {
-      const imageUrl = value?.asset ? getImageUrl(value) : null
-
-      if (!imageUrl) return null
-
-      return (
-        <figure className="article-inline-image">
-          <img
-            className="article-inline-image-element"
-            src={imageUrl}
-            alt={value.alt ?? ""}
-          />
-          {value.caption ? (
-            <figcaption className="article-inline-caption">{value.caption}</figcaption>
-          ) : null}
-        </figure>
-      )
-    },
-  },
-}
 
 export async function generateMetadata({ params }) {
   const { slug } = await params
@@ -117,7 +88,7 @@ export default async function ArticlePage({ params }) {
           </aside>
 
           <div className="article-body panel panel-raised">
-            <PortableText value={article.body} components={portableTextComponents} />
+            <PortableRichText value={article.body} />
           </div>
         </div>
       </article>

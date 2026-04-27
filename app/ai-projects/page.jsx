@@ -7,7 +7,7 @@ export default function AiProjectsPage() {
     <SimplePage
       eyebrow="Page placeholder"
       title="AI Projects page coming next."
-      body="This page will gather practical build stories, experiments, and live examples of AI-assisted product work."
+      body="This page will gather practical build stories, experiments and live examples of AI-assisted product work."
     />
   )
 }

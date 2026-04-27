@@ -8,7 +8,7 @@ export const revalidate = 60
 export const metadata = {
   title: "Blog",
   description:
-    "Articles by Ben Murr on product leadership, AI-assisted building, hands-on experiments, and learning technical craft.",
+    "Articles by Ben Murr on product leadership, AI-assisted building, hands-on experiments and learning technical craft.",
 }
 
 export default async function BlogPage() {
@@ -23,7 +23,7 @@ export default async function BlogPage() {
       <section className="page-hero panel panel-hero">
         <div className="page-hero-copy">
           <p className="eyebrow">Blog / Articles / Notes from the work</p>
-          <h1 className="page-title">Writing about product, AI, and learning by building.</h1>
+          <h1 className="page-title">Writing about product, AI and learning by building.</h1>
           <p className="hero-text">
             A running archive of practical reflections, hands-on experiments,
             and lessons from moving closer to the technical work as a product
@@ -40,7 +40,7 @@ export default async function BlogPage() {
           </div>
           <p className="meta-note">
             Ordered by publish date, newest first. Each entry carries a summary,
-            visual, tags, and a route into the full article page.
+            visual, tags and a route into the full article page.
           </p>
         </aside>
       </section>

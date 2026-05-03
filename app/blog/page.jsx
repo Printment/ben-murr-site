@@ -20,7 +20,7 @@ export default async function BlogPage() {
 
   return (
     <>
-      <section className="page-hero panel panel-hero">
+      <section className="page-hero page-hero-blog panel panel-hero">
         <div className="page-hero-copy">
           <p className="eyebrow">Blog / Articles / Notes from the work</p>
           <h1 className="page-title">Writing about product, AI and learning by building.</h1>
@@ -30,19 +30,6 @@ export default async function BlogPage() {
             leader.
           </p>
         </div>
-        <aside className="page-hero-aside panel panel-inset">
-          <p className="meta-line">Editorial focus</p>
-          <div className="tag-row">
-            <span className="tag">AI for Product</span>
-            <span className="tag">Hands-On Builds</span>
-            <span className="tag">Experiments</span>
-            <span className="tag">Leadership</span>
-          </div>
-          <p className="meta-note">
-            Ordered by publish date, newest first. Each entry carries a summary,
-            visual, tags and a route into the full article page.
-          </p>
-        </aside>
       </section>
 
       {featured ? (

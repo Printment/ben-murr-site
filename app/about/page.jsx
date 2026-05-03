@@ -7,7 +7,6 @@ export const metadata = { title: "About" }
 
 export default async function AboutPage() {
   const sections = await getAllAboutSections()
-  const primarySection = sections[0]
   const additionalSections = sections.slice(1)
 
   return (
@@ -25,21 +24,6 @@ export default async function AboutPage() {
               build, learn and lead.
             </p>
           </div>
-
-          <aside className="about-hub-aside panel panel-inset">
-            <p className="meta-line">Start here</p>
-            <h3>{primarySection?.title ?? "About me"}</h3>
-            <p>
-              Start with the foundations, then add new sections over time for
-              leadership principles, selected achievements, current projects or
-              whatever becomes useful next.
-            </p>
-            {primarySection ? (
-              <Link className="text-link" href={`/about/${primarySection.slug}`}>
-                Open {primarySection.navLabel}
-              </Link>
-            ) : null}
-          </aside>
         </div>
 
         {additionalSections.length ? (

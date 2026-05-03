@@ -1,33 +1,33 @@
 import Link from "next/link"
 import { getAllAboutSections } from "@/lib/about"
+import { getAboutPageSettings } from "@/lib/about-page-settings"
 import { ArticleVisual } from "@/components/article-visual"
 
 export const revalidate = 60
 export const metadata = { title: "About" }
 
 export default async function AboutPage() {
-  const sections = await getAllAboutSections()
+  const [sections, settings] = await Promise.all([
+    getAllAboutSections(),
+    getAboutPageSettings(),
+  ])
 
   return (
     <section className="about-hub about-hub-map">
       <div className="about-hub-main">
         <div className="about-hub-hero panel panel-hero">
           <div className="page-hero-copy">
-            <p className="eyebrow">About / Profile / How I work</p>
-            <h1 className="page-title">A steadier view of the person behind the experiments.</h1>
-            <p className="hero-text">
-              The blog is where I write in motion. This space is where I explain
-              how I work, what I care about and how AI is changing the way I
-              build, learn and lead.
-            </p>
+            <p className="eyebrow">{settings.eyebrow}</p>
+            <h1 className="page-title">{settings.headline}</h1>
+            <p className="hero-text">{settings.intro}</p>
           </div>
         </div>
 
         {sections.length ? (
           <div className="about-map-shell">
             <div className="section-heading">
-              <p className="eyebrow">Explore the profile</p>
-              <h2>Sections that grow with the work</h2>
+              <p className="eyebrow">{settings.sectionsEyebrow}</p>
+              <h2>{settings.sectionsHeading}</h2>
             </div>
 
             <div className="about-map-grid">

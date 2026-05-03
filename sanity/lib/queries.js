@@ -30,6 +30,14 @@ const aboutSectionFields = `
   body
 `
 
+const aboutPageSettingsFields = `
+  eyebrow,
+  headline,
+  intro,
+  sectionsEyebrow,
+  sectionsHeading
+`
+
 export const allArticlesQuery = defineQuery(`
   *[_type == "article"] | order(publishDate desc) {
     ${articleFields}
@@ -51,5 +59,11 @@ export const allAboutSectionsQuery = defineQuery(`
 export const aboutSectionBySlugQuery = defineQuery(`
   *[_type == "aboutSection" && slug.current == $slug][0] {
     ${aboutSectionFields}
+  }
+`)
+
+export const aboutPageSettingsQuery = defineQuery(`
+  *[_type == "aboutPageSettings"][0] {
+    ${aboutPageSettingsFields}
   }
 `)

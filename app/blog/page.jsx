@@ -1,42 +1,47 @@
 import Link from "next/link"
 import { getAllArticles } from "@/lib/blog"
+import { getBlogPageSettings } from "@/lib/blog-page-settings"
 import { ArticleVisual } from "@/components/article-visual"
 import { formatDate } from "@/lib/utils"
 
 export const revalidate = 60
 
-export const metadata = {
-  title: "Blog",
-  description:
-    "Articles by Ben Murr on product leadership, AI-assisted building, hands-on experiments and learning technical craft.",
+export async function generateMetadata() {
+  const settings = await getBlogPageSettings()
+
+  return {
+    title: settings.seoTitle ?? "Blog",
+    description:
+      settings.seoDescription ??
+      "Articles by Ben Murr on product leadership, AI-assisted building, hands-on experiments and learning technical craft.",
+  }
 }
 
 export default async function BlogPage() {
-  const articles = await getAllArticles()
+  const [articles, settings] = await Promise.all([
+    getAllArticles(),
+    getBlogPageSettings(),
+  ])
   const featured = articles.find((article) => article.featured) ?? articles[0]
   const archive = featured
     ? articles.filter((article) => article.slug !== featured.slug)
     : articles
 
   return (
-    <>
+      <>
       <section className="page-hero page-hero-blog panel panel-hero">
         <div className="page-hero-copy">
-          <p className="eyebrow">Blog / Articles / Notes from the work</p>
-          <h1 className="page-title">Writing about product, AI and learning by building.</h1>
-          <p className="hero-text">
-            A running archive of practical reflections, hands-on experiments,
-            and lessons from moving closer to the technical work as a product
-            leader.
-          </p>
+          <p className="eyebrow">{settings.eyebrow}</p>
+          <h1 className="page-title">{settings.headline}</h1>
+          <p className="hero-text">{settings.intro}</p>
         </div>
       </section>
 
       {featured ? (
         <section className="section-block">
           <div className="section-heading">
-            <p className="eyebrow">Featured article</p>
-            <h2>Current highlight</h2>
+            <p className="eyebrow">{settings.featuredEyebrow}</p>
+            <h2>{settings.featuredHeading}</h2>
           </div>
 
           <article className="featured-article panel panel-raised">
@@ -66,8 +71,8 @@ export default async function BlogPage() {
 
       <section className="section-block">
         <div className="section-heading">
-          <p className="eyebrow">All articles</p>
-          <h2>Reverse chronological archive</h2>
+          <p className="eyebrow">{settings.archiveEyebrow}</p>
+          <h2>{settings.archiveHeading}</h2>
         </div>
 
         <div className="blog-list">

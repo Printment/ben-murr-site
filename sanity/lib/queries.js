@@ -38,6 +38,18 @@ const aboutPageSettingsFields = `
   sectionsHeading
 `
 
+const blogPageSettingsFields = `
+  eyebrow,
+  headline,
+  intro,
+  featuredEyebrow,
+  featuredHeading,
+  archiveEyebrow,
+  archiveHeading,
+  seoTitle,
+  seoDescription
+`
+
 export const allArticlesQuery = defineQuery(`
   *[_type == "article"] | order(publishDate desc) {
     ${articleFields}
@@ -65,5 +77,11 @@ export const aboutSectionBySlugQuery = defineQuery(`
 export const aboutPageSettingsQuery = defineQuery(`
   *[_type == "aboutPageSettings"][0] {
     ${aboutPageSettingsFields}
+  }
+`)
+
+export const blogPageSettingsQuery = defineQuery(`
+  *[_type == "blogPageSettings"][0] {
+    ${blogPageSettingsFields}
   }
 `)

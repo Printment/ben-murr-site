@@ -62,27 +62,6 @@ export default async function AboutSectionPage({ params }) {
               <div className="about-section-side-visual">
                 <ArticleVisual article={{ ...section, visual: "featured" }} />
               </div>
-
-              <div className="about-section-side-list">
-                {section.focusAreas.length ? (
-                  <div className="signal-row">
-                    <span className="signal-label">Focus</span>
-                    <span className="signal-value">{section.focusAreas[0]}</span>
-                  </div>
-                ) : null}
-                {section.waysOfWorking.length ? (
-                  <div className="signal-row">
-                    <span className="signal-label">Works best on</span>
-                    <span className="signal-value gold">{section.waysOfWorking[0]}</span>
-                  </div>
-                ) : null}
-                {section.currentInterests.length ? (
-                  <div className="signal-row">
-                    <span className="signal-label">Currently developing</span>
-                    <span className="signal-value cyan">{section.currentInterests[0]}</span>
-                  </div>
-                ) : null}
-              </div>
             </aside>
           </header>
 
@@ -90,43 +69,6 @@ export default async function AboutSectionPage({ params }) {
             <div className="article-body panel panel-raised">
               <PortableRichText value={section.body} />
             </div>
-
-            <aside className="about-section-reference panel panel-inset">
-              <p className="meta-line">Section notes</p>
-
-              {section.focusAreas.length ? (
-                <div>
-                  <p className="signal-label">Focus areas</p>
-                  <ul className="about-note-list">
-                    {section.focusAreas.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-
-              {section.waysOfWorking.length ? (
-                <div>
-                  <p className="signal-label">Ways of working</p>
-                  <ul className="about-note-list">
-                    {section.waysOfWorking.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-
-              {section.currentInterests.length ? (
-                <div>
-                  <p className="signal-label">Current interests</p>
-                  <ul className="about-note-list">
-                    {section.currentInterests.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-            </aside>
           </div>
         </article>
       </section>

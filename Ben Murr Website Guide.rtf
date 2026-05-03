@@ -1,0 +1,498 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Arial;}{\f1 Courier New;}}
+{\colortbl;\red16\green22\blue31;\red36\green48\blue66;\red100\green116\blue139;\red217\green161\blue47;\red248\green250\blue252;}
+\paperw12240\paperh15840\margl1440\margr1440\margt1080\margb1080
+\vieww12240\viewh15840\fs24
+
+\pard\sa240\f0\fs56\b Ben Murr Website Guide\b0\par
+\pard\sa320\f0\fs22\cf3 Beginner guide for editing the website in Sanity, previewing changes locally and pushing code when needed. Updated 3 May 2026.\cf0\par
+\pard\sa240\li240\ri240\tx240\brdrt\brdrs\brdrw10\brdrcf4\brdrl\brdrs\brdrw30\brdrcf4\cbpat5\f0\fs22 Quick mental model: use Sanity for content and use code + Terminal for layout, styling, navigation and fixed page copy.\par
+\par
+\pard\sa180\f0\fs24 Beginner guide for updating the website through Sanity, checking changes locally and pushing code changes when needed.\par
+\par
+\pard\sa180\f0\fs24 Updated: 3 May 2026\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 1. What edits happen in Sanity and what edits happen in code\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Think of the site in two parts:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Sanity: content editing\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Code: layout, styling, navigation and fixed page copy\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Edited in Sanity now\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Blog articles\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab About sections\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Cover images\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Inline images inside blog and About body copy\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab About section order\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Tags and categories used by content\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Still edited in code\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Homepage hero headline and buttons\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Blog landing-page hero headline and intro copy\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab About landing-page hero headline and intro copy\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Navigation\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Footer\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Spacing, layout and styling\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 2. Current site structure\b0\cf0\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Main routes\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `/` Homepage\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `/blog` Blog landing page\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `/blog/[slug]` Individual blog article pages\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `/about` About landing page\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `/about/[slug]` Individual About section pages\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 How the pages work\b0\cf0\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Homepage\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Pulls the featured blog article automatically\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Shows fixed homepage copy from code\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab About card on the homepage links into the About area\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Blog landing page\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Hero copy is currently code-driven\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Featured article is pulled from Sanity\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Archive list is pulled from Sanity\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Blog article pages\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Main content comes from Sanity\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Cover image comes from Sanity\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Inline images come from Sanity\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 About landing page\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Hero copy is currently code-driven\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab About section cards are pulled from Sanity\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab The first card shown is controlled by the About section `Order` field\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 About section pages\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Main content comes from Sanity\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Cover image comes from Sanity\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Inline images come from Sanity\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab Support panel content comes from Sanity\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 3. What you need open when working\b0\cf0\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 To edit content in Sanity\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Run:\par
+\par
+\pard\sa180\li360\ri360\cbpat1\cf5\f1\fs19
+cd "/Users/benmurr/Documents/New project"\line 
+npx sanity@latest dev --port 3333\line 
+\par\pard\cf0\f0\fs24
+\par
+\pard\sa180\f0\fs24 Then open:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `http://localhost:3333/structure`\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 To preview the website locally\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Run:\par
+\par
+\pard\sa180\li360\ri360\cbpat1\cf5\f1\fs19
+cd "/Users/benmurr/Documents/New project"\line 
+npm run dev\line 
+\par\pard\cf0\f0\fs24
+\par
+\pard\sa180\f0\fs24 Then open:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `http://localhost:3000`\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 If the port is already in use\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 You may see a message saying another server is already running.\par
+\par
+\pard\sa180\f0\fs24 If that happens:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab use the existing localhost URL if it is already correct\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab or stop the old process and restart\par
+\par
+\pard\sa180\f0\fs24 Example:\par
+\par
+\pard\sa180\li360\ri360\cbpat1\cf5\f1\fs19
+kill 48161\line 
+npm run dev\line 
+\par\pard\cf0\f0\fs24
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 4. Everyday workflow\b0\cf0\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 If you are only changing content in Sanity\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 1.\tab Start Sanity Studio\par
+\pard\sa120\li360\fi-180\f0\fs22 2.\tab Edit the content\par
+\pard\sa120\li360\fi-180\f0\fs22 3.\tab Publish the content\par
+\pard\sa120\li360\fi-180\f0\fs22 4.\tab Refresh the local site\par
+\pard\sa120\li360\fi-180\f0\fs22 5.\tab Check the live site after a short wait\par
+\par
+\pard\sa180\f0\fs24 You do not need a code push for normal content changes if the layout already supports that content type.\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 If you are changing layout, styling or fixed copy\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 1.\tab Edit the code\par
+\pard\sa120\li360\fi-180\f0\fs22 2.\tab Preview locally\par
+\pard\sa120\li360\fi-180\f0\fs22 3.\tab Commit the code\par
+\pard\sa120\li360\fi-180\f0\fs22 4.\tab Push to GitHub\par
+\pard\sa120\li360\fi-180\f0\fs22 5.\tab Wait for Vercel to redeploy\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 5. Blog articles in Sanity\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Open:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Article`\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Main blog fields\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Title`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Slug`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Publish date`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Summary`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Cover image`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Category`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Tags`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Featured article`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Body`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `SEO title`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `SEO description`\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 What each field does\b0\cf0\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Title\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 The page headline shown on the blog article page and in the blog list.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Slug\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 The page URL.\par
+\par
+\pard\sa180\f0\fs24 Example:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `crafting-a-personal-website-from-scratch-with-ai-part-1`\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Publish date\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Used for date display and ordering on the blog.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Summary\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Used in cards, featured article panels and previews.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Cover image\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Used in the featured card, blog cards and the article hero.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Category\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Used for article theme and grouping.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Tags\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Used for supporting labels.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Featured article\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 If checked, this article becomes the featured one used on:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab homepage latest article areas\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab blog landing featured area\par
+\par
+\pard\sa180\f0\fs24 If no article is featured, the newest article is usually used instead.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Body\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Main article content. This supports:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab text\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab inline images\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab image alt text\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab image captions\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 6. How to create a new blog article\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 1.\tab Open `Article`\par
+\pard\sa120\li360\fi-180\f0\fs22 2.\tab Click `Create new`\par
+\pard\sa120\li360\fi-180\f0\fs22 3.\tab Fill in:\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab title\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab slug\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab publish date\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab summary\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab category\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab tags\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab cover image\par
+\pard\sa120\li360\fi-180\f0\fs22 4.\tab Write the body\par
+\pard\sa120\li360\fi-180\f0\fs22 5.\tab Add inline images if needed\par
+\pard\sa120\li360\fi-180\f0\fs22 6.\tab Decide whether it should be featured\par
+\pard\sa120\li360\fi-180\f0\fs22 7.\tab Publish\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Good beginner tip\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 If you are not ready to make it live yet, leave it unpublished and keep working in draft mode.\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 7. About sections in Sanity\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Open:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `About section`\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Main About fields\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Title`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Navigation label`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Slug`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Order`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Summary`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Focus areas`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Ways of working`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Current interests`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Cover image`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Tags`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Body`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `SEO title`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `SEO description`\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 What each field does\b0\cf0\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Title\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Main section title.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Navigation label\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Optional shorter label if you want a shorter display name.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Slug\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 The URL for that About section.\par
+\par
+\pard\sa180\f0\fs24 Example:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `about-me`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `how-i-work`\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Order\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Controls landing-page order.\par
+\par
+\pard\sa180\f0\fs24 The section with the lowest order number appears first and becomes the lead card on the About landing page.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Summary\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Short description shown on the About landing page card and section page.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Focus areas\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Shown in the section side panel and notes panel.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Ways of working\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Shown in the section side panel and notes panel.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Current interests\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Shown in the section side panel and notes panel.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Cover image\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Used in the About landing-page card and the section page.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Tags\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Shown on the landing card and the section page.\par
+\par
+\pard\sa120\sb160\f0\fs22\b\cf3 Body\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Main long-form copy. This supports:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab text\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab inline images\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab image alt text\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab image captions\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 8. How to create a new About section\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 1.\tab Open `About section`\par
+\pard\sa120\li360\fi-180\f0\fs22 2.\tab Click `Create new`\par
+\pard\sa120\li360\fi-180\f0\fs22 3.\tab Fill in:\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab title\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab navigation label if needed\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab slug\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab order\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab summary\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab cover image\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab tags\par
+\pard\sa120\li360\fi-180\f0\fs22 4.\tab Add:\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab focus areas\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab ways of working\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab current interests\par
+\pard\sa120\li360\fi-180\f0\fs22 5.\tab Add the body content\par
+\pard\sa120\li360\fi-180\f0\fs22 6.\tab Add inline images if needed\par
+\pard\sa120\li360\fi-180\f0\fs22 7.\tab Publish\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Example ordering\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `About me` = Order `1`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `How I work` = Order `2`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab `Leadership approach` = Order `3`\par
+\par
+\pard\sa180\f0\fs24 That would place:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 1.\tab `About me` first\par
+\pard\sa120\li360\fi-180\f0\fs22 2.\tab `How I work` second\par
+\pard\sa120\li360\fi-180\f0\fs22 3.\tab `Leadership approach` third\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 9. Images in Sanity\b0\cf0\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Cover image\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Use the `Cover image` field for the main visual for the article or About section.\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Inline image\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Use the `Body` field insert menu to add images inside the content itself.\par
+\par
+\pard\sa180\f0\fs24 When adding an image:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab always add `Alt text`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab add a caption if it helps the reader\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 10. Blog and About ordering rules\b0\cf0\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Blog\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab ordered by `Publish date`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab newest first\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab featured article can be used in highlighted positions\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 About\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab ordered by `Order`\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab then by title if two sections share the same order\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 11. What changes appear automatically and what need a code push\b0\cf0\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Changes that appear automatically after publishing in Sanity\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab new blog articles\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab edits to blog article copy\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab new About sections\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab edits to About section copy\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab image changes inside those supported content types\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab reordering About sections through `Order`\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Changes that still need code edits and a push\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab layout changes\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab spacing changes\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab navigation changes\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab footer changes\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab homepage hero copy\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab blog landing hero copy\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab About landing hero copy\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab new page types\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 12. How to push code to production\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Run:\par
+\par
+\pard\sa180\li360\ri360\cbpat1\cf5\f1\fs19
+cd "/Users/benmurr/Documents/New project"\line 
+git status\line 
+git add .\line 
+git commit -m "Describe the change"\line 
+git push\line 
+\par\pard\cf0\f0\fs24
+\par
+\pard\sa180\f0\fs24 Then:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 1.\tab Wait a minute or two\par
+\pard\sa120\li360\fi-180\f0\fs22 2.\tab Let Vercel redeploy\par
+\pard\sa120\li360\fi-180\f0\fs22 3.\tab Refresh the live site\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 13. Beginner troubleshooting\b0\cf0\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Problem: localhost is not loading\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Make sure the local server is running.\par
+\par
+\pard\sa180\f0\fs24 For the website:\par
+\par
+\pard\sa180\li360\ri360\cbpat1\cf5\f1\fs19
+npm run dev\line 
+\par\pard\cf0\f0\fs24
+\par
+\pard\sa180\f0\fs24 For Sanity:\par
+\par
+\pard\sa180\li360\ri360\cbpat1\cf5\f1\fs19
+npx sanity@latest dev --port 3333\line 
+\par\pard\cf0\f0\fs24
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Problem: the wrong localhost port appears\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Sometimes `3000` is already in use and Next starts on `3001`.\par
+\par
+\pard\sa180\f0\fs24 Either:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab use the new port shown in Terminal\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab or stop the old process and restart\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Problem: content is published in Sanity but not visible on the site\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Check:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 1.\tab the entry is actually published\par
+\pard\sa120\li360\fi-180\f0\fs22 2.\tab the slug is correct\par
+\pard\sa120\li360\fi-180\f0\fs22 3.\tab the content type is supported by the page\par
+\pard\sa120\li360\fi-180\f0\fs22 4.\tab the page has been refreshed\par
+\pard\sa120\li360\fi-180\f0\fs22 5.\tab you allow a short delay for revalidation\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Problem: new About section is in the wrong place\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Check the `Order` field in Sanity.\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 Problem: I changed something but the live site did not update\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Ask:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab was this a content change in Sanity\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab or a code/layout change\par
+\par
+\pard\sa180\f0\fs24 If it was a code/layout change, it needs a Git push.\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 14. Recommended working pattern\b0\cf0\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 For writing days\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab open Sanity\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab draft the article or About section\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab publish\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab preview locally\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab check live\par
+\par
+\pard\sa180\sb180\f0\fs26\b\cf2 For layout days\b0\cf0\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab run the local website\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab test the page in localhost\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab commit and push code when happy\par
+\par
+\pard\sa220\sb260\f0\fs34\b\cf2 15. Suggested future improvements\b0\cf0\par
+\par
+\pard\sa180\f0\fs24 Good future candidates to move into Sanity:\par
+\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab homepage hero copy\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab blog landing hero copy\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab About landing hero copy\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab footer text\par
+\pard\sa120\li360\fi-180\f0\fs22 \\u8226?\tab navigation supporting copy\par
+\par
+\pard\sa180\f0\fs24 That would reduce the amount of code editing needed for day-to-day updates.\par
+\par
+}

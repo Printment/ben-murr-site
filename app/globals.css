@@ -467,6 +467,14 @@ h3 { font-size: 1.5rem; letter-spacing: 0.04em; margin-bottom: var(--space-3); }
 .article-sidebar-tags { margin-top: var(--space-3); }
 .article-body { display: grid; gap: var(--space-4); }
 .article-body p, .article-body li, .article-body blockquote { max-width: 70ch; }
+.about-section-content .article-body p,
+.about-section-content .article-body li,
+.about-section-content .article-body blockquote,
+.about-section-content .article-body h2,
+.about-section-content .article-body h3,
+.about-section-content .article-body h4 {
+  max-width: none;
+}
 .article-body h2 { font-size: clamp(1.5rem, 2vw, 2rem); }
 .article-body p, .article-body blockquote { margin: 0; }
 .article-inline-image { margin: 0; display: grid; gap: var(--space-2); }

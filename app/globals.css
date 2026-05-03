@@ -421,11 +421,12 @@ h3 { font-size: 1.5rem; letter-spacing: 0.04em; margin-bottom: var(--space-3); }
 }
 .about-section-side {
   display: grid;
-  align-content: start;
+  align-content: stretch;
   padding: var(--space-4);
 }
 .about-section-side-visual {
   min-height: 220px;
+  height: 100%;
 }
 .about-section-side-visual .article-visual {
   min-height: 220px;

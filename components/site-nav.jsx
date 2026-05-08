@@ -7,6 +7,11 @@ const navItems = [
   { href: "/tools", label: "AI Tools" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
+  {
+    href: "mailto:hello@benmurr.com?subject=Hello%20Ben",
+    label: "Contact",
+    isExternal: true,
+  },
 ]
 
 export function SiteNav() {
@@ -15,7 +20,16 @@ export function SiteNav() {
   return (
     <nav className="nav" aria-label="Primary">
       {navItems.map((item) => {
-        const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`)
+        const isActive =
+          !item.isExternal && (pathname === item.href || pathname.startsWith(`${item.href}/`))
+
+        if (item.isExternal) {
+          return (
+            <a key={item.href} href={item.href} className="nav-link">
+              {item.label}
+            </a>
+          )
+        }
 
         return (
           <Link

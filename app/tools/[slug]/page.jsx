@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArticleVisual } from "@/components/article-visual"
 import { PortableRichText } from "@/components/portable-rich-text"
 import { getAllAiTools, getAiToolBySlug } from "@/lib/tools"
 
@@ -55,12 +54,7 @@ export default async function ToolDetailPage({ params }) {
         <header className="tool-detail-hero panel panel-hero">
           <div className="tool-detail-header">
             <p className="meta-line">AI tool / Reference page</p>
-            <div className="tool-detail-title-row">
-              <div className="tool-detail-logo">
-                <ArticleVisual article={{ ...tool, visual: "featured" }} />
-              </div>
-              <h1 className="tool-detail-title">{tool.title}</h1>
-            </div>
+            <h1 className="tool-detail-title">{tool.title}</h1>
             <p className="tool-detail-deck">{tool.summary}</p>
             {tool.tags.length ? (
               <div className="tag-row">

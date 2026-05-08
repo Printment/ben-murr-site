@@ -387,6 +387,7 @@ h3 { font-size: 1.5rem; letter-spacing: 0.04em; margin-bottom: var(--space-3); }
   align-content: stretch;
   padding: var(--space-5);
   height: 100%;
+  min-height: 22.5rem;
 }
 .tool-card-visual {
   width: 72px;

@@ -14,6 +14,23 @@ const articleFields = `
   body
 `
 
+const aiToolFields = `
+  title,
+  "slug": slug.current,
+  order,
+  summary,
+  coverImage,
+  seoTitle,
+  seoDescription,
+  tags[]->{title, "slug": slug.current},
+  whatItIs,
+  whatIUseItFor,
+  whereItWorksWell,
+  drawbacksOrLimits,
+  whoShouldUseIt,
+  myVerdict
+`
+
 const aboutSectionFields = `
   title,
   navLabel,
@@ -50,9 +67,31 @@ const blogPageSettingsFields = `
   seoDescription
 `
 
+const toolsPageSettingsFields = `
+  eyebrow,
+  headline,
+  intro,
+  libraryEyebrow,
+  libraryHeading,
+  seoTitle,
+  seoDescription
+`
+
 export const allArticlesQuery = defineQuery(`
   *[_type == "article"] | order(publishDate desc) {
     ${articleFields}
+  }
+`)
+
+export const allAiToolsQuery = defineQuery(`
+  *[_type == "aiTool"] | order(order asc, title asc) {
+    ${aiToolFields}
+  }
+`)
+
+export const aiToolBySlugQuery = defineQuery(`
+  *[_type == "aiTool" && slug.current == $slug][0] {
+    ${aiToolFields}
   }
 `)
 
@@ -83,5 +122,11 @@ export const aboutPageSettingsQuery = defineQuery(`
 export const blogPageSettingsQuery = defineQuery(`
   *[_type == "blogPageSettings"][0] {
     ${blogPageSettingsFields}
+  }
+`)
+
+export const toolsPageSettingsQuery = defineQuery(`
+  *[_type == "toolsPageSettings"][0] {
+    ${toolsPageSettingsFields}
   }
 `)

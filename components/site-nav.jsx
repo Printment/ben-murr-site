@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 const navItems = [
+  { href: "/tools", label: "AI Tools" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
 ]
@@ -14,8 +15,7 @@ export function SiteNav() {
   return (
     <nav className="nav" aria-label="Primary">
       {navItems.map((item) => {
-        const isActive =
-          pathname === item.href || (item.href === "/blog" && pathname.startsWith("/blog/"))
+        const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`)
 
         return (
           <Link

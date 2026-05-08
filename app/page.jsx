@@ -22,6 +22,9 @@ export default async function HomePage() {
             <Link className="button button-primary" href="/blog">
               Read the blog
             </Link>
+            <Link className="button button-secondary" href="/tools">
+              Explore AI tools
+            </Link>
             <Link className="button button-ghost" href="/about">
               About Ben
             </Link>
@@ -84,7 +87,24 @@ export default async function HomePage() {
           </article>
 
           <article className="card panel panel-raised">
-            <p className="meta-line">02 / About Ben</p>
+            <p className="meta-line">02 / Tool library</p>
+            <h3>AI Tools</h3>
+            <p>
+              A living reference for the AI tools I use, what they help with,
+              where they fall short and who I&apos;d recommend them to.
+            </p>
+            <div className="tag-row">
+              <span className="tag">ChatGPT</span>
+              <span className="tag">Codex</span>
+              <span className="tag">Claude</span>
+            </div>
+            <Link className="text-link" href="/tools">
+              Explore AI tools
+            </Link>
+          </article>
+
+          <article className="card panel panel-raised">
+            <p className="meta-line">03 / About Ben</p>
             <h3>About</h3>
             <p>
               A clearer view of how I work as a product leader, how I&apos;m using

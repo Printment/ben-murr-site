@@ -4,6 +4,7 @@ import { aboutSectionType } from "./about-section"
 import { aboutPageSettingsType } from "./about-page-settings"
 import { categoryType } from "./category"
 import { blogPageSettingsType } from "./blog-page-settings"
+import { homePageSettingsType } from "./home-page-settings"
 import { toolsPageSettingsType } from "./tools-page-settings"
 import { tagType } from "./tag"
 
@@ -11,6 +12,7 @@ export const schemaTypes = [
   articleType,
   aiToolType,
   aboutSectionType,
+  homePageSettingsType,
   aboutPageSettingsType,
   blogPageSettingsType,
   toolsPageSettingsType,

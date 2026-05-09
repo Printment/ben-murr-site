@@ -1,23 +1,25 @@
 import Link from "next/link"
 import { getAllArticles } from "@/lib/blog"
+import { getHomePageSettings } from "@/lib/home-page-settings"
 import { ArticleVisual } from "@/components/article-visual"
 import { formatDate } from "@/lib/utils"
 
+export const revalidate = 60
+
 export default async function HomePage() {
-  const articles = await getAllArticles()
+  const [articles, settings] = await Promise.all([
+    getAllArticles(),
+    getHomePageSettings(),
+  ])
   const featured = articles.find((article) => article.featured) ?? articles[0]
 
   return (
     <>
       <section className="hero panel panel-hero">
         <div className="hero-copy">
-          <p className="eyebrow">Product leadership / AI learning / building in public</p>
-          <h1>Product thinking with builder momentum.</h1>
-          <p className="hero-text">
-            I&apos;m Ben Murr, a product leader exploring how AI can expand what a
-            PM can build, ship and understand firsthand. This site captures the
-            work, the learning and the practical experiments behind that shift.
-          </p>
+          <p className="eyebrow">{settings.eyebrow}</p>
+          <h1>{settings.headline}</h1>
+          <p className="hero-text">{settings.intro}</p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/blog">
               Read the blog

@@ -55,6 +55,12 @@ const aboutPageSettingsFields = `
   sectionsHeading
 `
 
+const homePageSettingsFields = `
+  eyebrow,
+  headline,
+  intro
+`
+
 const blogPageSettingsFields = `
   eyebrow,
   headline,
@@ -116,6 +122,12 @@ export const aboutSectionBySlugQuery = defineQuery(`
 export const aboutPageSettingsQuery = defineQuery(`
   *[_type == "aboutPageSettings"][0] {
     ${aboutPageSettingsFields}
+  }
+`)
+
+export const homePageSettingsQuery = defineQuery(`
+  *[_type == "homePageSettings"][0] {
+    ${homePageSettingsFields}
   }
 `)
 

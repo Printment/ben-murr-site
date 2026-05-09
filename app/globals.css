@@ -223,6 +223,9 @@ h3 { font-size: 1.5rem; letter-spacing: 0.04em; margin-bottom: var(--space-3); }
 .project-grid, .blog-preview, .featured-article, .blog-card, .article-content-wrap, .blog-list { display: grid; gap: var(--space-4); }
 .project-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
 .homepage-focus-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.homepage-focus-grid .card { display: flex; flex-direction: column; }
+.homepage-focus-grid .card .tag-row { margin-top: auto; }
+.homepage-focus-grid .card .text-link { align-self: flex-start; }
 .card { padding: var(--space-5); transition: transform var(--motion-fast) var(--ease-mechanical), box-shadow var(--motion-base) var(--ease-mechanical), border-color var(--motion-base) var(--ease-mechanical); }
 .card:hover { border-color: rgba(227,178,74,0.24); box-shadow: var(--shadow-panel-hover), var(--inset-highlight); }
 .card p { margin: 0 0 var(--space-4); }
